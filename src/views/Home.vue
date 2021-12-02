@@ -60,15 +60,15 @@
                           </td>
                           <td class="text-right">
                             <ul class="navbar-nav ml-lg-auto">
-                              <li class="nav-item">
-                                  <a class="nav-link nav-link-icon" href="#">
+                              <!-- <li class="nav-item">
+                                  <a class="nav-link nav-link-icon" data-toggle="modal" data-target="#modal-del-notification" >
                                       <i class="fas fa-minus-circle"></i>
                                   </a>
-                              </li>
+                              </li> -->
                               <li class="nav-item">
-                                  <a class="nav-link nav-link-icon" href="#">
+                                <router-link class="nav-link nav-link-icon" :to="`/server/${index}`">
                                       <i class="fas fa-binoculars"></i>
-                                  </a>
+                                </router-link>
                               </li>
                             </ul>
                           </td>
@@ -145,6 +145,29 @@
     </div>
 </div>
 
+<!-- <div class="modal fade" id="modal-del-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content bg-gradient-danger">
+            
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <h4 class="heading mt-4">Esta seguro de borrar la conexion?</h4>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-white" data-dismiss="modal" @click="borrarServer(id)">Borrar</button>
+            </div>
+            
+        </div>
+    </div>
+</div> -->
+
 </template>
 
 <script>
@@ -193,6 +216,9 @@
         if(JSON.parse(localStorage.getItem('Server'))){
             this.visible = false
         } 
+      },
+      viewServer(id) {
+        console.log(id)
       }
       
     },
@@ -200,15 +226,6 @@
         this.loadData()
     }
   }
-
-
-const saveServer = () => {
-
-
-
-  setCount(localStorage.setItem('Server',' q'))
-}
-
 
 
 </script>
