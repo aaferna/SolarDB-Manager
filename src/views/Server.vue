@@ -1,46 +1,36 @@
 <template>
-
-  
-<div class="container-fluid pdni d-flex flex-column vh-100 overflow-hidden" >
-  <nav class="header bg-gradient-primary fixed-top" id="mn">
-      <div class="container">
-          <div class="header-body text-center mb-7">
-          <div class="row align-items-center py-4">
-              <div class="col-lg-12 text-right">
-              <div class="dropdown">
-                      <a class="btn btn-sm btn-icon-only btn btn-secondary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                          <a class="dropdown-item" href="#">Nueva Consulta</a>
-                          <a class="dropdown-item" href="#">Nuevo Post</a>
-                          <!-- <a class="dropdown-item" href="#">Nuevo Usuario</a> -->
-                      </div>
-                  </div>
-              </div>
+<div class="wrapper">
+  <collectionsMenu :database="solarName" @accion="getDatafromDB"/>
+  <div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Conectado al Servidor  {{solarName}}
+            </a>
           </div>
-          </div>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="container-fluid">
+          <unDrawDiv v-if="selected === false" :tipe="2" />
+          <tableOfRows v-else :name="dbName" :rowsData="dbRows" />
+        </div>
       </div>
-  </nav>
-    <div class="row flex-grow-1 overflow-hidden">
-        <div class="col-2 mh-100 overflow-auto py-2" style="padding-top: -1.5rem !important;">
-            <navCollections :database="solarName" @accion="getDatafromDB"/>
-        </div>
-        <div class='col mh-100 overflow-auto' style="margin-top: 10px;">
-            <unDrawDiv v-if="selected === false" :tipe="2" />
-            <tableOfRows v-else :name="dbName" :rowsData="dbRows" />
-        </div>
-    </div>
+  </div>
 </div>
-
 </template>
 
 <script>
 
+  import collectionsMenu from "../components/collectionsMenu.vue"
   import unDrawDiv from "../components/unDrawDiv.vue"
   import tableOfRows from "../components/tableOfRows.vue"
-  import navCollections from "../components/navCollections.vue"
-
   let axios = require('axios');
 
   export default{
@@ -48,7 +38,7 @@
     components : {
       unDrawDiv,
       tableOfRows,
-      navCollections
+      collectionsMenu
     },
     data(){
       return {
@@ -88,42 +78,35 @@
   }
 
 
-
-
 </script>
 
 <style scoped>
-.header {
-  top: 0;
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  height: 80px;
-}
-.ct-sidebar {
-  
-    z-index: 1000;
-    height: calc(100vh- 4rem);
-}
-.pdni{
-  padding-top: 70px;
-  position: absolute;
-  height: calc(100% - 80px);
-  width: 100%;
-  overflow-y: auto;
-}
+  .header {
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+  }
 
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: inherit;
-  min-width: 0;
-  word-wrap: break-word;
-  border: 1px
-  solid rgba(0, 0, 0, .05);
-  border-radius: 0.375rem;
-  background-color: #fff;
-  background-clip: border-box;
-}
+  .pdni{
+    padding-top: 182px;
+    position: absolute;
+    height: calc(100% - 80px);
+    width: 100%;
+    overflow-y: auto;
+  }
 
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: inherit;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px
+    solid rgba(0, 0, 0, .05);
+    border-radius: 0.375rem;
+    background-color: #fff;
+    background-clip: border-box;
+  }
 </style>
