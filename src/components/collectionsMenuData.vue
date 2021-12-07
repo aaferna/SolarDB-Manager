@@ -6,29 +6,21 @@
                 <li >
                     <router-link class="nav-link nav-link-icon" :to="`/`">
                     <i class="pe-7s-server"></i>
-                        <p>Bases de Datos</p>
+                        <p>Actualizar Datos</p>
                     </router-link>
                 </li>
                 <li>
                     <router-link class="nav-link nav-link-icon" :to="`/server/add`">
                     <i class="pe-7s-plus"></i>
-                        <p>Agregar Servidor</p>
+                        <p>Ultimo Insert</p>
                     </router-link>
                 </li>
-            <br>
-            <div class="logo "> Colecciones </div>
-
-            <br>
-
-                <li  v-for="(data, index) in ssdatas" :key="index">
-                    <a class="nav-link nav-link-icon" @click="$emit('accion', data)"> <i class="pe-7s-box2"></i> <p>{{data}}</p> </a>
+                 <li>
+                    <router-link class="nav-link nav-link-icon" :to="`/server/add`">
+                    <i class="pe-7s-plus"></i>
+                        <p>Borrar Index</p>
+                    </router-link>
                 </li>
-
-                <div v-if="ssdatas.length === 0">
-                    <center>
-                        No hay Colecciones
-                    </center>
-                </div>
                 
             </ul>
         </div>

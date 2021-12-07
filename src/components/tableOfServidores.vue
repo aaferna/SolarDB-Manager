@@ -39,7 +39,7 @@
                                 </div>
                             </td>
                             <td class="text-right" >
-                                <router-link class="btn btn-sm btn-info btn-fill" :to="`/server/view/${index}`">
+                                <router-link class="btn btn-sm btn-info btn-fill" :to="`/server/${index}`">
                                     Ver Equipo
                                 </router-link>
                             </td>

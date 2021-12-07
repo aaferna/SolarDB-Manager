@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import ServerHome from '../views/Server.vue'
 import AddServer from '../views/AddServer.vue'
+import DataView from '../views/DataView.vue'
 
 const routes = [
   {
@@ -10,9 +11,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/server/view/:id',
+    path: '/server/:server',
     name: 'ServerHome',
     component: ServerHome
+  },
+  {
+    path: '/server/:server/:collection/:index',
+    name: 'DataView',
+    component: DataView
   },
   {
     path: '/server/add',

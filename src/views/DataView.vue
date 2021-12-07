@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
   
-  <collectionsMenu :ssdatas="colecciones" @accion="getDatafromDB"/>
+  <collectionsMenuData />
   <div class="main-panel">
     <nav class="navbar navbar-default navbar-fixed">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-              <a class="navbar-brand" href="#">  {{solarName }}{{ dbName ? ": "+dbName : "" }}</a>
+              <a class="navbar-brand" href="#"> Index {{this.$route.params.index}} de {{this.$route.params.collection}} en {{ solarName }}</a>
               <div class="clearfix" data-v-cad94a00=""></div>
               <button v-if="dbName" style="margin-left: 15px;" href="/server/view/data/0" class="btn btn-xs btn-success  btn-fill"> Agregar Registro </button>
           </div>
@@ -20,8 +20,7 @@
     </nav>
     <div class="content">
       <div class="container-fluid">
-          <unDrawDiv v-if="selected === false" :tipe="2" />
-          <tableOfRows v-else :server="dbId" :collection="dbName" :rowsData="dbRows" />
+          <collectionData  />
       </div>
     </div>
   </div>
@@ -32,27 +31,21 @@
 
   let axios = require('axios');
 
-  import collectionsMenu from "../components/collectionsMenu.vue"
-  import unDrawDiv from "../components/unDrawDiv.vue"
-  import tableOfRows from "../components/tableOfRows.vue"
+  import collectionsMenuData from "../components/collectionsMenuData.vue"
+  import collectionData from "../components/collectionData.vue"
   
   export default{
     name: "Server",
     components : {
-      unDrawDiv,
-      tableOfRows,
-      collectionsMenu
+      collectionsMenuData,
+      collectionData
     },
     data(){
       return {
         solarURL: "",
         solarName: "",
         solarToken: "",
-        selected: false,
-        colecciones: [], 
-        dbName: "",
-        dbRows: [],
-        dbId: ""
+        
       }
     },
     methods:{
@@ -61,41 +54,10 @@
             this.solarURL = solarServer.ip
             this.solarName = solarServer.name
             this.solarToken = solarServer.token
-            this.dbId = this.$route.params.server
-      },
-      async getDatafromDB(name) {
-        const response = await axios({
-          method: 'get',
-          url: this.solarURL+`/store/${name}/list/inserts/long`,
-          headers: { 
-            'Authorization': 'Bearer '+this.solarToken
-          }
-        })
-        this.selected = true
-        this.dbName = name
-        this.dbRows = response.data
-      },
-      async loadData() {
-
-          const response = await axios({
-              method: 'get',
-              url: this.solarURL+'/store/list',
-              headers: { 
-                  'Authorization': 'Bearer '+this.solarToken
-              }
-          })
-          
-          if(response.data[0].code === "ENOENT") {
-              this.error = true
-          } else {
-              this.colecciones = response.data
-          }
-
       }
     },
     beforeMount(){
-        this.getServer(),
-        this.loadData()
+        this.getServer()
     }
   }
 

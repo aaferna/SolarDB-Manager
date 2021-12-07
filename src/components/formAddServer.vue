@@ -1,6 +1,7 @@
 <template>
   <div class="row">
     <div class="col-md-12">
+      
         <div class="card">
 
             <div class="header">
@@ -10,13 +11,10 @@
             <div class="content">
                     <label for="basic-url">Nombre del Servidor</label>
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-sm" id="name" placeholder="Nombre del Servidor">
+                            <input type="email" class="form-control form-control-sm" id="name">
                         </div>
                 <br>
-                    <label for="basic-url">URL del Servidor</label>
-
                 <div class="row">
-
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Protocolo</label>
@@ -29,21 +27,20 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>IP / URL</label>
-                            <input type="text" id="ip" placeholder="IP" class="form-control form-control-sm">
+                            <input type="text" id="ip" class="form-control form-control-sm">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Puerto</label>
-                            <input type="text" id="puerto" placeholder="Puerto" class="form-control form-control-sm">
+                            <input type="text" id="puerto" class="form-control form-control-sm">
                         </div>
                     </div>
                 </div>
-                       
                 <br>
                     <label for="basic-url">Token de Acceso</label>
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-sm" id="token" placeholder="Token de Acceso">
+                            <input type="email" class="form-control form-control-sm" id="token">
                         </div>
 
                     <button type="button" class="btn btn-success btn-sm btn-fill pull-right" @click="registrarEquipo()">Guardar Cambios</button>
@@ -108,5 +105,20 @@ export default {
   .input-group-multi [class*='col-']:last-child .form-control {
     border-radius: 0 4px 4px 0;
     border-right: 1px solid #ccc;
+  }
+  .card .category, .card label {
+      font-size: 14px;
+      font-weight: 400;
+      color: #423f3f;
+  }
+  .form-control {
+      background-color: #ffffff;
+      border: 1px solid #777;
+      border-radius: 4px;
+      color: #565656;
+      padding: 8px 12px;
+      height: 40px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
   }
 </style>
