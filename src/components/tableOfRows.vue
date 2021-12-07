@@ -25,7 +25,7 @@
                                 </td>
                                 <td class="text-right" >
 
-                                    <router-link class="btn btn-xs btn-warning btn-fill" target="_blank" :to="`/server/${server}/${collection}/${index}`" >
+                                    <router-link class="btn btn-xs btn-warning btn-fill" :to="`/server/${server}/${collection}/${index}`" >
                                         Ver mas
                                     </router-link>
                                 </td>
