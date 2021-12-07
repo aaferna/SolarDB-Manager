@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/SolarDB-Manager'
-  }
+  publicPath: process.env.NODE_ENV === 'production' ? '/SolarDB-Manager/' : '/'
+}

@@ -4,20 +4,23 @@
             <div class="logo "> <a class="simple-text"> SolarDB Manager </a> </div>
             <ul class="nav">
                 <li >
+                    <a class="nav-link nav-link-icon" href="javascript:history.back()">
+                    <i class="pe-7s-back"></i>
+                        <p>Atras</p>
+                    </a>
+                </li>
+                  <br>
+                <div class="logo "> Utilidades </div>
+                <br>
+                <li >
                     <router-link class="nav-link nav-link-icon" :to="`/`">
-                    <i class="pe-7s-server"></i>
+                    <i class="pe-7s-note"></i>
                         <p>Actualizar Datos</p>
                     </router-link>
                 </li>
                 <li>
                     <router-link class="nav-link nav-link-icon" :to="`/server/add`">
-                    <i class="pe-7s-plus"></i>
-                        <p>Ultimo Insert</p>
-                    </router-link>
-                </li>
-                 <li>
-                    <router-link class="nav-link nav-link-icon" :to="`/server/add`">
-                    <i class="pe-7s-plus"></i>
+                    <i class="pe-7s-trash"></i>
                         <p>Borrar Index</p>
                     </router-link>
                 </li>

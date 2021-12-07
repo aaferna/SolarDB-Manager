@@ -1,6 +1,5 @@
 <template>
 <div class="wrapper">
-  
   <collectionsMenuData />
   <div class="main-panel">
     <nav class="navbar navbar-default navbar-fixed">

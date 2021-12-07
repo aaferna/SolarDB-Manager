@@ -27,6 +27,7 @@ export default {
                     'Authorization': 'Bearer '+ solarToken
                 }
             })
+            $("#datas").html("");
             document.querySelector("#datas").appendChild(jsonViewer.getContainer());
             jsonViewer.showJSON(response.data);
         }
