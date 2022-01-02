@@ -1,7 +1,8 @@
 <template>
     <div class="row">
         <div class="col-md-12">
-            <div class="card" id="indexes">
+            <unDrawDiv :tipe="4" v-if="rowsData.length === 0" />
+            <div v-else class="card" id="indexes">
                 <div class="table-responsive">
                     <table class="table align-items-center">
                         <thead class="thead-light">
@@ -24,7 +25,6 @@
                                     </div>
                                 </td>
                                 <td class="text-right" >
-
                                     <router-link class="btn btn-xs btn-warning btn-fill" :to="`/server/${server}/${collection}/${data.id}`" >
                                         Ver mas
                                     </router-link>
@@ -41,16 +41,19 @@
 
 <script>
 
+import unDrawDiv from "../components/unDrawDiv.vue"
 
 let axios = require('axios'),
     jsonViewer = new JSONViewer();
-
 
 export default {
     data(){
       return {
         index: ""
       }
+    },
+    components : {
+      unDrawDiv
     },
     props:{
         server: String,

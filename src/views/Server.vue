@@ -12,16 +12,16 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-              <a class="navbar-brand" href="#">  {{solarName }}{{ dbName ? ": "+dbName : "" }}</a>
-              <div class="clearfix" data-v-cad94a00=""></div>
-              <button v-if="dbName" style="margin-left: 15px;" href="/server/view/data/0" class="btn btn-xs btn-success  btn-fill"> Agregar Registro </button>
+              <a class="navbar-brand" href="#">  {{ solarName }}{{ dbName ? ": "+dbName : "" }}</a>
+              <div class="clearfix" ></div>
+              <button v-if="dbName" style="margin-left: 15px;"  class="btn btn-xs btn-success  btn-fill"> Agregar Registro </button>
           </div>
         </div>
     </nav>
     <div class="content">
       <div class="container-fluid">
           <unDrawDiv v-if="selected === false" :tipe="2" />
-          <tableOfRows v-else :server="dbId" :collection="dbName" :rowsData="dbRows" />
+          <tableOfRows v-else :server="dbId" :collection="dbName" :rowsData="dbRows"  />
       </div>
     </div>
   </div>

@@ -12,17 +12,17 @@
                   <br>
                 <div class="logo "> Utilidades </div>
                 <br>
-                <li >
-                    <router-link class="nav-link nav-link-icon" :to="`/`">
-                    <i class="pe-7s-note"></i>
+                <li>
+                    <a class="nav-link nav-link-icon">
+                        <i class="pe-7s-note"></i>
                         <p>Actualizar Datos</p>
-                    </router-link>
+                    </a>
                 </li>
                 <li>
-                    <router-link class="nav-link nav-link-icon" :to="`/server/add`">
+                    <a  @click="delInsert(collection, index)" class="nav-link nav-link-icon" :to="`/server/add`">
                     <i class="pe-7s-trash"></i>
                         <p>Borrar Index</p>
-                    </router-link>
+                    </a>
                 </li>
                 
             </ul>
@@ -31,12 +31,37 @@
 </template>
 
 <script>
+const axios = require('axios');
+
+
 
     export default {
 
         props: {
-            ssdatas: Array
-        }
+            index: String,
+            collection: String
+        },
+        methods:{
+            delInsert(collection, index){
+                if (window.confirm("Esta seguro con querer eliminar el Index?")) {
+              let   solarServer = JSON.parse(localStorage.getItem("Server"))[this.$route.params.server],
+                    solarURL = solarServer.ip,
+                    solarToken = solarServer.token
+
+                    const response =  axios({
+                        method: 'delete',
+                        url: solarURL+`/delete/${collection}/${index}`,
+                        headers: { 
+                            'Authorization': 'Bearer '+ solarToken
+                        }
+                    }).then((response) => {
+                        alert(response.data.msg)
+                    }).catch((error) => {
+                        console.log(error);
+                    });
+                }
+            }
+        },
 
     }
 </script>
