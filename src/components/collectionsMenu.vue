@@ -4,16 +4,10 @@
             <div class="logo "> <a class="simple-text"> SolarDB Manager </a> </div>
             <ul class="nav">
                 <li >
-                    <router-link class="nav-link nav-link-icon" :to="`/`">
-                    <i class="pe-7s-server"></i>
-                        <p>Bases de Datos</p>
-                    </router-link>
-                </li>
-                <li>
-                    <router-link class="nav-link nav-link-icon" :to="`/server/add`">
-                    <i class="pe-7s-plus"></i>
-                        <p>Agregar Servidor</p>
-                    </router-link>
+                    <a class="nav-link nav-link-icon" href="javascript:history.back()">
+                    <i class="pe-7s-back"></i>
+                        <p>Atras</p>
+                    </a>
                 </li>
             <br>
             <div class="logo "> Colecciones </div>

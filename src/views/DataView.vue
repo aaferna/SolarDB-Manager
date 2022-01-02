@@ -1,6 +1,6 @@
 <template>
 <div class="wrapper">
-  <collectionsMenuData />
+  <collectionsMenuData :collection="this.$route.params.collection" :index="this.$route.params.index"/>
   <div class="main-panel">
     <nav class="navbar navbar-default navbar-fixed">
         <div class="container-fluid">
@@ -12,8 +12,6 @@
               <span class="icon-bar"></span>
             </button>
               <a class="navbar-brand" href="#"> Index {{this.$route.params.index}} de {{this.$route.params.collection}} en {{ solarName }}</a>
-              <div class="clearfix" data-v-cad94a00=""></div>
-              <button v-if="dbName" style="margin-left: 15px;" href="/server/view/data/0" class="btn btn-xs btn-success  btn-fill"> Agregar Registro </button>
           </div>
         </div>
     </nav>
