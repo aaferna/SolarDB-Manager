@@ -8,6 +8,13 @@
                     <i class="pe-7s-back"></i>
                         <p>Atras</p>
                     </a>
+                    
+                </li>
+                <li>
+                     <router-link class="nav-link nav-link-icon" :to="`/server/newEntry/${this.$route.params.server}`">
+                        <i class="pe-7s-note"></i>
+                        <p>Agregar Registro</p>
+                    </router-link>
                 </li>
             <br>
             <div class="logo "> Colecciones </div>
