@@ -1,6 +1,6 @@
 {
-  "name": "Manager",
-  "version": "0.1.0",
+  "name": "manager",
+  "version": "2.0.2",
   "private": true,
   "homepage": "https://gusgeek.github.io/SolarDB-Manager",
   "scripts": {

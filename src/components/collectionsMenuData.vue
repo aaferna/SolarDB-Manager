@@ -56,6 +56,7 @@ const axios = require('axios');
                         }
                     }).then((response) => {
                         alert(response.data.msg)
+                        history.back()
                     }).catch((error) => {
                         console.log(error);
                     });
